@@ -10,11 +10,12 @@
 #include "dp.h"
 #include "Queen.h"
 #include "Paths.h"
+#include "Graph.h"
 
 using namespace std;
 
 int main() {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	cout << "" << endl; // prints !!!Hello World!!!
 	/*vector<long> res(100);
 	res.assign(100, -1);
 	int n = 20;
@@ -24,6 +25,8 @@ int main() {
 
 	//placeQueens(5,0);
 
-	findGridPath();
+	//findGridPath();
+
+	TestDFSBFS();
 	return 0;
 }
