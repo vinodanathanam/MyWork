@@ -21,6 +21,6 @@ int main() {
 	printf("Fib of %d is %ld\n", n, fib(n, res));
 */
 
-	placeQueens(0,0);
+	placeQueens(8,0);
 	return 0;
 }
