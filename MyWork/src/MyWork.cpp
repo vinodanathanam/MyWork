@@ -9,6 +9,7 @@
 #include <iostream>
 #include "dp.h"
 #include "Queen.h"
+#include "Paths.h"
 
 using namespace std;
 
@@ -21,6 +22,8 @@ int main() {
 	printf("Fib of %d is %ld\n", n, fib(n, res));
 */
 
-	placeQueens(5,0);
+	//placeQueens(5,0);
+
+	findGridPath();
 	return 0;
 }

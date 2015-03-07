@@ -13,7 +13,7 @@
 
 using namespace std;
 
-const int DIM = 8;
+const int DIMS = 8;
 
 struct pt{
 	int x;
@@ -28,9 +28,29 @@ bool operator==(const pt& p1, const pt& p2)
 
 vector<pt> g_path;
 
-bool isFree(int *grid, int row, int col)
+
+void printPath(int (&grid)[DIM][DIM])
 {
-	if(NULL == grid || row >= DIM || row < 0 || col < 0 || col >= DIM)
+	//first add the found path;
+	for(vector<pt>::iterator it = g_path.begin(); it !=  g_path.end(); it++)
+	{
+		grid[it->x][it->y] = 1;
+	}
+
+	//print
+	for(int i = 0; i < DIMS; i++)
+	{
+		for(int j = 0; j < DIMS; j++)
+		{
+			printf("%d ", grid[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+bool isFree(int (&grid)[DIM][DIM], int row, int col)
+{
+	if(NULL == grid || row >= DIMS || row < 0 || col < 0 || col >= DIMS)
 		return false;
 
 	//check grid
@@ -44,20 +64,23 @@ bool isFree(int *grid, int row, int col)
 	return true;
 }
 
-bool findPath(int *grid, int row, int col)
+bool findPath(int (&grid)[DIM][DIM], int row, int col)
 {
 	pt p(row, col);
 	g_path.push_back(p);
-	if(DIM == row && DIM == col)
+	if(DIMS == row+1 && DIMS == col+1)
+	{
+		printPath(grid);
 		return true;
+	}
 
 	bool success(false);
 	//check right
-	if(col+1 < DIM && isFree(grid, row, col + 1))
+	if(col+1 < DIMS && isFree(grid, row, col + 1))
 		success = findPath(grid, row, col + 1);
 
 	//check down;
-	if(false == success && row+1 < DIM && isFree(grid, row + 1, col))
+	if(false == success && row+1 < DIMS && isFree(grid, row + 1, col))
 		success = findPath(grid, row+1, col);
 
 	//check up
@@ -75,9 +98,38 @@ bool findPath(int *grid, int row, int col)
 	return success;
 }
 
+
+
+
 void findGridPath()
 {
+	/*
+	int** grid = new int*[DIM];
+	for(int i= 0; i < DIM; i++)
+	{
+		grid[i] = new int[DIM];
+	}
+	*/
 
+	int grid[DIM][DIM] = {
+			 {0,2,0,0,0,0,0,0}
+			,{0,2,0,0,0,0,0,0}
+			,{0,2,0,0,4,3,0,0}
+			,{0,2,0,0,0,3,0,0}
+			,{0,2,2,2,0,3,0,0}
+			,{0,0,0,0,0,3,0,0}
+			,{0,0,0,0,0,3,0,0}
+			,{0,0,0,0,0,3,0,0}
+	};
+
+	findPath(grid, 0,0);
+
+	/*for(int i= 0; i < DIM; i++)
+	{
+		delete [] grid[i];
+	}
+	delete [] grid;
+	*/
 }
 
 #endif /* PATHS_H_ */
