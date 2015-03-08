@@ -40,6 +40,20 @@ void testfptr()
 	printf("Mul is %d\n", mres);
 }
 
+// first way using the typedef
+//pt2Function funcArr1[10] = {NULL};
+// 2nd way directly defining the array
+//int (*funcArr2[10])(float, char, char) = {NULL};
 
+// Direct solution: Function takes a char and returns a pointer to a
+// function which is taking two floats and returns a float. <opCode>
+// specifies which function to return
+/*
+float (*GetPtr1(const char opCode))(float, float){
+if(opCode == ’+’)
+return &Plus;
+else
+return &Minus;}
+*/
 
 #endif /* FPTR_H_ */
