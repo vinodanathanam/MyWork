@@ -11,6 +11,7 @@
 #include "Queen.h"
 #include "Paths.h"
 #include "Graph.h"
+#include "Fptr.h"
 
 using namespace std;
 
@@ -27,6 +28,9 @@ int main() {
 
 	//findGridPath();
 
-	TestDFSBFS();
+	//TestDFSBFS();
+
+	testfptr();
+
 	return 0;
 }
