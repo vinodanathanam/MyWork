@@ -12,6 +12,7 @@
 #include "Paths.h"
 #include "Graph.h"
 #include "Fptr.h"
+#include "MyStl.h"
 
 using namespace std;
 
@@ -30,7 +31,9 @@ int main() {
 
 	//TestDFSBFS();
 
-	testfptr();
+	//testfptr();
+
+	testBind1st();
 
 	return 0;
 }

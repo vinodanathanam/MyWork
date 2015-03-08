@@ -39,9 +39,9 @@ void testBind1st()
 	vec.push_back(6);
 	vec.push_back(9);
 
-	for_each(vec.begin(), vec.end(), bind2nd(testAdd, 10));
-	for_each(vec.begin(), vec.end(), bind2nd(Add(), 10));
-	for_each(vec.begin(), vec.end(), bind1st(Add(), 10));
+	for_each(vec.begin(), vec.end(), bind2nd(ptr_fun(&testAdd), 10));
+	for_each(vec.begin(), vec.end(), bind2nd(Add(), 20));
+	for_each(vec.begin(), vec.end(), bind1st(Add(), 30));
 }
 
 
