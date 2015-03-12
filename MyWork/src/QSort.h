@@ -23,7 +23,7 @@ int partition(int* arr, int l, int r)
 	int x = arr[r];
 	int i = l-1;
 
-	for(int j = l; j <= r; j++)
+	for(int j = l; j < r; j++)
 	{
 		if(arr[j] <= x)
 		{
@@ -60,7 +60,7 @@ void myQuickSort()
 	int a[] = {2,5,9,7,5,1,4,8,11,3};
 	qSort(a, 0,9);
 
-	for_each(a,a + 9, printval());
+	for_each(a,a + 10, printval());
 }
 
 #endif /* QSORT_H_ */
