@@ -34,7 +34,9 @@ int main() {
 
 	//testfptr();
 
-	testBind1st();
+	//testBind1st();
+
+	myQuickSort();
 
 	return 0;
 }
