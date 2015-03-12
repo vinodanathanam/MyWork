@@ -13,6 +13,7 @@
 #include "Graph.h"
 #include "Fptr.h"
 #include "MyStl.h"
+#include "QSort.h"
 
 using namespace std;
 
