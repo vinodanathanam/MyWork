@@ -8,6 +8,8 @@
 #ifndef TREE_H_
 #define TREE_H_
 
+#include <list>
+
 struct tNode{
 	int data;
 	tNode* left;
@@ -63,6 +65,24 @@ void inorder(tNode* node)
 	}
 }
 
+void printSameLevel(tNode* node)
+{
+	if(NULL == node)
+		return;
+	list<tNode*> Q;
+	Q.push_back(node);
+	while(false == Q.empty())
+	{
+		tNode* t = Q.front();
+		Q.pop_front();
+		printf("%d ",t->data);
+		if(NULL != t->left)
+			Q.push_back(t->left);
+		if(NULL != t->right)
+			Q.push_back(t->right);
+	}
+}
+
 tNode* deleteNode(tNode* node, int d)
 {
 	if(NULL == node)
@@ -102,6 +122,27 @@ tNode* deleteNode(tNode* node, int d)
 		}
 	}
 	return node;
+}
+
+void TestTree()
+{
+	tNode* root = NULL;
+	root = Insert(root,5); root = Insert(root,10);
+	root = Insert(root,3); root = Insert(root,4);
+	root = Insert(root,1); root = Insert(root,11);
+
+	printf("Inorder start: ");
+	//inorder(root);
+	printSameLevel(root);
+
+// Deleting node with value 5, change this value to test other cases
+	root = deleteNode(root,5);
+
+//Print Nodes in Inorder
+	printf("\nInorder after deletion: ");
+	//inorder(root);
+	printSameLevel(root);
+	printf("\n");
 }
 
 #endif /* TREE_H_ */
