@@ -37,7 +37,9 @@ int main() {
 
 	//testBind1st();
 
-	myQuickSort();
+	//myQuickSort();
+
+	TestTree();
 
 	return 0;
 }
