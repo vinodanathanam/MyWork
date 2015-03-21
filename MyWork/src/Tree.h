@@ -131,15 +131,15 @@ void TestTree()
 	root = Insert(root,3); root = Insert(root,4);
 	root = Insert(root,1); root = Insert(root,11);
 
-	printf("Inorder start: ");
+	printf("Samelevel start: ");
 	//inorder(root);
 	printSameLevel(root);
 
 // Deleting node with value 5, change this value to test other cases
-	root = deleteNode(root,5);
+	root = deleteNode(root,3);
 
 //Print Nodes in Inorder
-	printf("\nInorder after deletion: ");
+	printf("\nSamelevel after deletion: ");
 	//inorder(root);
 	printSameLevel(root);
 	printf("\n");
