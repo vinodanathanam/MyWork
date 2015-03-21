@@ -14,6 +14,7 @@
 #include "Fptr.h"
 #include "MyStl.h"
 #include "QSort.h"
+#include "Tree.h"
 
 using namespace std;
 
