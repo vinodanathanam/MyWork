@@ -143,6 +143,8 @@ void TestTree()
 	//inorder(root);
 	printSameLevel(root);
 	printf("\n");
+
+	cleanup(root);
 }
 
 #endif /* TREE_H_ */
