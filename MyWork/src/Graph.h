@@ -123,7 +123,7 @@ void BFS(int start)
 			{
 				printf("%d ", *it);
 				visited[*it] = 1;
-				Q.push_front(*it);
+				Q.push_back(*it);
 			}
 		}
 	}
