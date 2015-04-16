@@ -16,6 +16,7 @@
 #include "QSort.h"
 #include "Tree.h"
 #include "list.h"
+#include "codility.h"
 
 using namespace std;
 
