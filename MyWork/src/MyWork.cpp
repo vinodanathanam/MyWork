@@ -40,7 +40,9 @@ int main() {
 
 	//myQuickSort();
 
-	TestTree();
+	//TestTree();
+
+	testlist();
 
 	return 0;
 }
