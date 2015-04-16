@@ -88,6 +88,7 @@ void recRev(lNode* node)
 {
 	if(NULL == node->next)
 	{
+		tail = head;
 		head = node;
 		return;
 	}
@@ -98,6 +99,39 @@ void recRev(lNode* node)
 	nxt->next = node;
 	node->next = NULL;
 
+}
+
+lNode* findLoop()
+{
+	if(NULL == head)
+		return NULL;
+
+	lNode* slow(head);
+	lNode* fast(head);
+
+	lNode* tmp = head;
+
+	while(slow != NULL && fast != NULL)
+	{
+		slow = tmp->next;
+		fast = tmp->next->next;
+
+		if(slow == fast)
+			break;
+	}
+
+	if(fast != slow)
+		return NULL;
+
+	fast = head;
+
+	while(fast != slow)
+	{
+		fast = fast->next;
+		slow = slow->next;
+	}
+
+	return slow;
 }
 
 void testlist()
