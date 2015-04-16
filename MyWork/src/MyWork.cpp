@@ -15,6 +15,7 @@
 #include "MyStl.h"
 #include "QSort.h"
 #include "Tree.h"
+#include "list.h"
 
 using namespace std;
 
