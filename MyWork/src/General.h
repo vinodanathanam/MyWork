@@ -34,7 +34,7 @@ bool GetBit(int num, int index)
 	return ((num & (1 << index)) > 0);
 }
 
-void SetBit(int num, int index, bool b)
+void SetBit(int& num, int index, bool b)
 {
 	if(b)
 		num | (1 << index);
