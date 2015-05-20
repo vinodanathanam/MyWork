@@ -177,6 +177,8 @@ void TestTree()
 	printSameLevel(root);
 	printf("\n");
 
+	printf("\nMax desc path : %d\n",desMaxPath(root).mVal);
+
 	cleanup(root);
 }
 
