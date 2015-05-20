@@ -10,6 +10,16 @@
 
 #include <list>
 
+struct tResult{
+	int lVal;
+	int rVal;
+	int mVal;
+	tResult(){
+		lVal = rVal = mVal = 0;
+	}
+	tResult(int l, int r, int m):lVal(l), rVal(r), mVal(m){}
+};
+
 struct tNode{
 	int data;
 	tNode* left;
@@ -19,6 +29,11 @@ struct tNode{
 
 	}
 };
+
+int myMax(int a, int b)
+{
+	return (a > b)?a:b;
+}
 
 tNode* Insert(tNode* node, int data)
 {
@@ -122,6 +137,24 @@ tNode* deleteNode(tNode* node, int d)
 		}
 	}
 	return node;
+}
+
+tResult desMaxPath(tNode* node)
+{
+
+	if(NULL == node)
+		return tResult(0,0,0);
+	else
+	{
+		tResult leftVal = desMaxPath(node->left);
+		tResult rightVal = desMaxPath(node->right);
+
+		int l = 1 + leftVal.lVal;
+		int r = 1 + rightVal.rVal;
+
+		int m = myMax( myMax(l,r), myMax(leftVal.mVal, rightVal.mVal) );
+		return tResult(l,r,m);
+	}
 }
 
 void TestTree()
